@@ -1,0 +1,36 @@
+{config_load file="$language/lang_$language.conf" section="boxes"}
+{if $deny_cart neq 'true'}
+
+
+<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-shopping-cart"> </i> Warenkorb
+({php}
+                $cart_count = 0;
+                 foreach($band_id = $this->get_template_vars('products') as $product){
+                     $cart_count += $product['QTY'];
+                 }
+                 echo $cart_count;
+                {/php})
+</a>
+   <ul class="dropdown-menu" role="menu" style="padding: 20px">
+         {if $ACTIVATE_GIFT=='true'}
+		{if $GV_AMOUNT neq ''}
+			<p><strong>{#voucher_balance#}</strong>&nbsp;{$GV_AMOUNT}</p>
+			<div class="hr"></div>
+		{/if}
+	{/if}
+ 
+	{if $empty=='false'} <!-- cart has content -->
+		{foreach name=aussen item=products_data from=$products}
+			<p>{$products_data.QTY}&nbsp;x&nbsp;<a href="{$products_data.LINK}">{$products_data.NAME|truncate:20:"...":true}</a></p>
+		{/foreach}
+		<div class="hr"></div>
+		<p style="text-align:right">{if $DISCOUNT}{#text_discount#} {$DISCOUNT}<br />{/if}
+		{$UST}
+		<strong>{#text_total#}:{$TOTAL}</strong><br />
+		{if $SHIPPING_INFO}{$SHIPPING_INFO}{/if}</p>
+   {else}
+   {#text_empty_cart#}
+   {/if}
+   <a href="{$LINK_CART}" class="btn btn-block btn-small"><strong>{#heading_cart#}</strong></a>
+   </ul>
+{/if}

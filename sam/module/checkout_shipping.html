@@ -1,0 +1,36 @@
+{config_load file="$language/lang_$language.conf" section="checkout_shipping"}
+{config_load file="$language/lang_$language.conf" section="checkout_navigation"}
+<ul id="checkoutnavigation">
+<li><img src="{$tpl_path}img/shipping_aktiv.png" alt="{#title_shipping#}" /></li>
+	<li><img src="{$tpl_path}img/payment.png" alt="{#title_payment#}" /></li>
+	<li><img src="{$tpl_path}img/request.png" alt="{#title_confirmation#}" /></li>
+	<li><img src="{$tpl_path}img/ready.png" alt="{#title_success#}" /></li>
+</ul>
+<div class="clearfix"></div>
+<div class="page-header">
+<h1>Versandart wählen</h1>
+</div>
+{if $error != ''}<div class="alert alert-error">{$error}</div>{/if}
+
+<div class="row-fluid">
+    <div class="span3">
+{$FORM_ACTION}
+<div class="page-header">
+    <h2>{#title_address#}</h2>
+</div>
+<div class="well well-gradient">
+    <p>{$ADDRESS_LABEL}</p>
+<p>{$BUTTON_ADDRESS}</p>
+</div>
+    
+    </div>
+
+ <div class="span9">
+<div class="page-header">
+    <h2>{#heading_shipping#}</h2>
+</div>
+<p>{#text_shipping#}</p>
+<p>{$SHIPPING_BLOCK}</p>
+<button type="submit" class="btn btn-success pull-right">Weiter <i class="icon-chevron-right icon-white"></i></button>
+{$FORM_END}</div>
+</div>

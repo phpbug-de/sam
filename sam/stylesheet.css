@@ -1,0 +1,123 @@
+@import url('css/bootstrap.css');
+@import url('css/bootstrap-responsive.css');
+
+body {
+    font-size: 12px;
+}
+.well .title {
+    margin: 10px 0 20px;
+    padding-bottom:0;
+    color: #3A87AD;
+    font-size: 24px;
+    line-height: 30px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.well .title small{
+    font-size: 12px;
+}
+
+.well-gradient {
+    background:-moz-linear-gradient(top, #fff, #f3f3f3); /* Firefox */
+    background:-webkit-linear-gradient(top, #fff, #f3f3f3); /* Safari, Chrome */
+    background:-o-linear-gradient(top, #fff, #f3f3f3); /* Opera */
+    background:-ms-linear-gradient(top, #fff, #f3f3f3); /* IE */
+    background:linear-gradient(top, #fff, #f3f3f3); /* W3C Standard */
+}
+
+input[type="radio"]{
+    margin: 0 15px;
+}
+
+@media (max-width: 979px) { 
+    .navbar-fixed-top {
+        margin-bottom: 0px;
+    }
+}
+.price {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.taxandshippinginfo {
+    font-size: 9px;
+    font-weight: normal;
+}
+
+.clear {
+    clear:both;
+}
+
+.bs-docs-sidenav {
+    background-color: #FFFFFF;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    margin: 30px 0 0;
+    padding: 0;
+    width: 228px;
+}
+
+.dropdown-categories h4 a{
+    color: #777;
+}
+
+footer {
+    background-color: #F5F5F5;
+    border-top: 1px solid #E5E5E5;
+    margin-top: 70px;
+    padding: 30px 0;
+    color: #777;
+}
+footer .page-header{
+     margin: 0;
+}
+footer .page-header h3{
+     margin: 0;
+     font-size: 16px;
+     line-height: 16px;
+     padding: 5px;
+}
+
+.navbar-static-top {
+   margin-bottom: 15px; 
+}
+.page-header {
+    padding: 0;
+}
+.page-header h1 {
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+    color: #777;
+}
+.page-header h2 {
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    color: darkslategray;
+}
+
+.product-price-info input[name="products_qty"] {
+    width: 40px;
+    margin: 3px 15px 0 0;
+}
+.checkoutagb {
+    display: block;
+    height: 100px;
+    overflow: scroll;
+    
+}
+#checkoutnavigation {
+    list-style: none;
+}
+#checkoutnavigation li {
+    float: left;
+}
+
+a {
+    color: #b00097;
+}
+
+a:hover {
+    color: #7c036b;
+}

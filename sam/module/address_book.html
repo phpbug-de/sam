@@ -1,0 +1,27 @@
+{config_load file="$language/lang_$language.conf" section="address_book"}
+<div class="page-header">
+    <h1>{#heading_address#}</h1>
+</div>
+{$FORM_ACTION}
+{if $error!=''}<div class="errormessage">{$error}</div>{/if}
+<div class="page-header">
+    <h2>{#title_standard#}</h2>
+</div>
+<div class="well well-gradient">
+    <p>{$ADDRESS_DEFAULT}</p>
+</div>
+
+<div class="page-header">
+    <h2>{#title_addresses#}</h2>
+</div>
+{foreach name=aussen item=addresses from=$addresses_data}
+
+<div class="well well-gradient">
+<p><strong>{$addresses.NAME}</strong> {if $addresses.PRIMARY=='1'} ({#title_standard#}) {/if}<br />
+{$addresses.ADDRESS}</p>
+<p>{$addresses.BUTTON_EDIT}&nbsp;{$addresses.BUTTON_DELETE}</p>
+</div>
+{/foreach}
+<p>{$BUTTON_NEW}&nbsp;{$BUTTON_BACK}</p>
+
+<p>{$ADDRESS_COUNT}</p>

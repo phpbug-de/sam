@@ -1,0 +1,22 @@
+{config_load file="$language/lang_$language.conf" section="shopping_cart"}
+<div class="page-header">
+    <h1>{#heading_cart#}</h1>
+</div>
+
+{if $info_message!=''}<div class="alert alert-error">{$info_message}</div>{/if}
+{if $cart_empty==true}
+<p>{#text_empty#}</p>
+<p>{$BUTTON_CONTINUE}</p>
+{else}
+{$FORM_ACTION}
+{$HIDDEN_OPTIONS}
+<p>{$MODULE_order_details}</p>
+{if $info_message_1!=''}<div class="alert alert-error">{$info_message_1}{$min_order}{$info_message_2}{$order_amount}</div>{/if}
+
+<a href="/checkout_shipping.php" class="btn btn-success pull-right">Zur Kasse <i class="icon-chevron-right icon-white"></i></a>
+<button type="submit" class="btn"><i class="icon-refresh"></i>Aktualisieren</button>
+{if $BUTTON_PAYPAL!=''}{$BUTTON_PAYPAL}{/if}
+
+{$FORM_END}{/if}
+{$MODULE_gift_cart}
+

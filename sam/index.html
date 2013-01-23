@@ -1,0 +1,94 @@
+{config_load file="$language/sam_$language.conf" section="index"}
+
+<!-- Container
+================================================== -->
+<div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a href="{$index}" ><img src="{$tpl_path}img/logo.png" style="margin: 5px;" /></a>
+            <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse pull-right">
+                <ul class="nav">
+                    <li class="divider-vertical"></li>
+                    <li><a href="{$account}">{#link_account#}</a></li>
+                    <li class="divider-vertical"></li>
+                    <li class="dropdown" style="margin-left: 10px">
+                        {$box_CONTENT}
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li class="visible-phone"><a href="{$index}/index.php?cPath=0">{#link_categories#}</a></li>
+                    {if $smarty.session.customer_id}
+                    <li><a href="{$logoff}">{#link_logoff#}</a></li>
+                    <li class="divider-vertical"></li>
+                    {/if}
+                    {if $smarty.session.customers_status.customers_status_id == '1'}
+                    <li><a href="{php}echo xtc_href_link(FILENAME_CREATE_ACCOUNT, '', 'SSL');{/php}">{#new_customer#}</a></li>
+                    <li class="divider-vertical"></li>
+                    {/if}
+                    <li><a href="{$checkout}">{#link_checkout#}</a></li>
+                    <li class="divider-vertical"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav nav-pills"> 
+                <li class="dropdown hidden-phone">
+                    {$box_CATEGORIES}
+                </li> 
+                <li>{$box_SEARCH}</li>
+                <li class="dropdown" style="margin-left: 10px">
+                    {$box_CART}
+                </li>   
+            </ul>
+            <div class="pull-right visible-desktop">{$box_LANGUAGES}</div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Content
+        ================================================== -->
+        <div class="{if strpos($smarty.server.PHP_SELF, 'checkout')}span12{else}span9{/if}">
+            {if strstr ($smarty.server.PHP_SELF, 'index')}
+            {if $smarty.get.cPath==null and $smarty.get.manufacturers_id==''}
+            {if $BANNER}{$BANNER}{/if}
+            {/if}
+            {/if}
+            <div id="breadcrumb">{$navtrail}</div>
+            {$main_content}
+        </div>
+        {if !strstr ($smarty.server.PHP_SELF, 'checkout')}
+        <!-- Navigation
+        ================================================== -->
+        <div class="span3">
+            <!-- Navigation 1
+            ================================================== -->
+            {$box_MENU}
+            {$box_BESTSELLERS}
+            {$box_ADMIN}
+        </div>
+        {/if}
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                {$box_INFORMATION}
+            </div>
+            <div class="span4" style="text-align: center">
+                <img src="{$tpl_path}img/paypal.png" alt="PayPal Zahlung"/>
+            </div>
+            <div class="span4">  
+                @todo fehlt was
+            </div>
+        </div>
+    </div>
+</footer>
+

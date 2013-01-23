@@ -1,0 +1,126 @@
+{config_load file="$language/lang_$language.conf" section="create_account"}
+<div class="page-header">
+    <h1>{#heading_create_guest_account#}</h1>
+</div>
+
+{$FORM_ACTION}
+{if $error!=''}<div class="alert alert-error">{$error}</div>{/if}
+<div class="form-horizontal">
+
+    <fieldset class="well well-gradient">
+        <h1 class="title">{#title_personal#} <small>({#text_must#})</small></h1>
+        {if $gender=='1'}
+        <div class="control-group">
+            <div class="controls">        
+                {$INPUT_MALE} {$INPUT_FEMALE}
+            </div>
+        </div> 
+        {/if}
+        <div class="control-group">
+            <label class="control-label" >{#text_firstname#} / {#text_lastname#}</label>
+            <div class="controls  controls-row">
+                <input type="text" class="span2" name="firstname"> <input type="text" class="span2" name="lastname"> *
+            </div>
+        </div>
+        {if $birthdate=='1'}
+        <div class="control-group">
+            <label class="control-label" >{#text_birthdate#}</label>
+            <div class="controls">
+                <input type="text" class="span4" name="dob" placeholder="15.01.1980"> *
+            </div>
+        </div>
+        {/if}
+        <div class="control-group">
+            <label class="control-label" >{#text_street#}</label>
+            <div class="controls">
+                <input type="text" class="span4" name="street_address"> * 
+            </div>
+        </div>
+        {if $suburb=='1'}
+        <div class="control-group">
+            <label class="control-label" >{#text_suburb#}</label>
+            <div class="controls">
+                <input type="text" class="span4" name="suburb">
+            </div>
+        </div>
+        {/if}
+        <div class="control-group">
+            <label class="control-label" for="postcode">{#text_code#} / {#text_city#}</label>
+            <div class="controls controls-row">
+                <input name="postcode" type="text" class="span1" /> <input name="city" type="text" class="span3" /> *
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" >{#text_country#}</label>
+            <div class="controls">
+                {$SELECT_COUNTRY}
+            </div>
+        </div>
+        {if $state=='1'}
+        <div class="control-group">
+            <label class="control-label" >{#text_state#}</label>
+            <div class="controls">
+                {$INPUT_STATE}
+            </div>
+        </div>
+        {/if}
+
+    </fieldset>
+    <fieldset class="well well-gradient">
+        <h1 class="title">{#title_contact#}</h1>
+        <div class="control-group">
+            <label class="control-label" >{#text_email#}</label>
+            <div class="controls">
+                <input type="text" class="span4" name="email_address" placeholder="name@mail.de"> *
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" >{#text_confirm_email#}</label>
+            <div class="controls">
+                <input type="text" class="span4" name="confirm_email_address"> *
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" >{#text_tel#}</label>
+            <div class="controls">
+                {$INPUT_TEL}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" >{#text_fax#}</label>
+            <div class="controls">
+                {$INPUT_FAX}
+            </div>
+        </div>
+    </fieldset>
+    {if $company=='1'}
+    <fieldset class="well well-gradient">
+        <h1 class="title">{#title_company#}</h1>
+        <div class="control-group">
+            <label class="control-label" >{#text_company#}</label>
+            <div class="controls">
+                {$INPUT_COMPANY}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" >{#text_ustid#}</label>
+            <div class="controls">
+                {$INPUT_VAT}
+            </div>
+        </div>
+    </fieldset>
+    {/if} 
+    {if $PRIVACY_CHECKBOX}
+    <fieldset class="well well-gradient">
+        <h1 class="title">{#text_privacy_accept#}</h1>
+        <div class="control-group">
+            <label class="control-label" >{#text_privacy_accept#} {$PRIVACY_LINK}</label>
+            <div class="controls">
+                {$PRIVACY_CHECKBOX}
+            </div>
+        </div>
+    </fieldset>
+    {/if}
+    <button type="submit" class="btn pull-right btn-success">anmelden</button>
+</div>
+{$FORM_END}

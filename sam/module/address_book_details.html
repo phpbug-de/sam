@@ -1,0 +1,71 @@
+{config_load file="$language/lang_$language.conf" section="address_book_process"}
+<fieldset class="well well-gradient">
+<h1 class="title">{#title_address#} <small>{#text_must#}</small></h1>
+{if $gender=='1'}
+        <div class="control-group">
+            <div class="controls">        
+                {$INPUT_MALE} {$INPUT_FEMALE}
+            </div>
+        </div> 
+        {/if}
+        <div class="control-group">
+            <label class="control-label" >{#text_firstname#}</label>
+            <div class="controls  controls-row">
+                {$INPUT_FIRSTNAME}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" >{#text_lastname#}</label>
+            <div class="controls  controls-row">
+               {$INPUT_LASTNAME}
+            </div>
+        </div>
+        {if $company=='1'} 
+        <div class="control-group">
+            <label class="control-label" >{#text_company#}</label>
+            <div class="controls">
+                {$INPUT_COMPANY}
+            </div>
+        </div>
+        {/if}
+        <div class="control-group">
+            <label class="control-label" >{#text_street#}</label>
+            <div class="controls">
+                {$INPUT_STREET}
+            </div>
+        </div>
+        {if $suburb=='1'}
+        <div class="control-group">
+            <label class="control-label" >{#text_suburb#}</label>
+            <div class="controls">
+                {$INPUT_SUBURB}
+            </div>
+        </div>
+        {/if}
+        <div class="control-group">
+            <label class="control-label" for="postcode">{#text_code#}</label>
+            <div class="controls controls-row">
+                {$INPUT_CODE}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="postcode">{#text_city#}</label>
+            <div class="controls controls-row">
+                {$INPUT_CITY}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" >{#text_country#}</label>
+            <div class="controls">
+                {$SELECT_COUNTRY}
+            </div>
+        </div>
+        {if $state=='1'}
+        <div class="control-group">
+            <label class="control-label" >{#text_state#}</label>
+            <div class="controls">
+                {$INPUT_STATE}
+            </div>
+        </div>
+        {/if}
+</fieldset>

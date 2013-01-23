@@ -1,0 +1,58 @@
+{config_load file="bs1/$language/lang_$language.conf" section="login"}
+{if $info_message!=''}
+<div class="alert alert-error">{$info_message}</div>
+{/if}
+<div class="page-header">
+    <h1>Anmeldung</h1>
+</div>
+{if $account_option=='account' or $account_option=='both'}
+
+{$FORM_ACTION}
+<div class="row-fluid">
+    <div class="span6">
+        <!-- Login
+        ================================================== -->
+        <div class="page-header">
+            <h2>{#title_returning#}</h2>
+        </div>
+        <div class="well well-gradient">
+            <p>{#text_returning#}</p>
+            <div class="control-group">
+                <label class="control-label" for="email_address">{#text_email#}</label>
+                <div class="controls">
+                    {$INPUT_MAIL}
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password">{#text_password#}</label>
+                <div class="controls">
+                    {$INPUT_PASSWORD}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">{#login#}</button>
+            <a href="{$LINK_LOST_PASSWORD}">{#text_lost_password#}</a>
+        </div>
+    </div>
+
+    <div class="span6">
+        <div class="page-header">
+            <h2>{#title_new#}</h2>
+        </div>
+        <div class="well well-gradient">
+            <p>{#text_new#}</p>
+            <a href="/create_account.php" class="btn btn-block btn-success">{#btn_text_new#}</a> <!-- @todo sgi: link generator -->
+        </div>
+    </div>
+</div>
+{$FORM_END}
+{/if}
+
+{if $account_option=='both' or $account_option=='guest'}
+<div class="page-header">
+    <h2>{#title_guest#}</h2>
+</div>
+<div class="well well-gradient">
+    <p>{#text_guest#}</p>
+    <a href="/create_guest_account.php" class="btn">{#btn_text_guest#}</a> <!-- @todo sgi: link generator -->
+</div>
+{/if}

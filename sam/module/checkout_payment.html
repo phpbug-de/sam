@@ -1,0 +1,51 @@
+{config_load file="$language/lang_$language.conf" section="checkout_payment"}
+{config_load file="$language/lang_$language.conf" section="checkout_navigation"}
+<ul id="checkoutnavigation">
+  <li><img src="{$tpl_path}img/shipping_aktiv.png" alt="{#title_shipping#}" /></li>
+	<li><img src="{$tpl_path}img/payment_aktiv.png" alt="{#title_payment#}" /></li>
+	<li><img src="{$tpl_path}img/request.png" alt="{#title_confirmation#}" /></li>
+	<li><img src="{$tpl_path}img/ready.png" alt="{#title_success#}" /></li>
+</ul>
+<div class="clearfix"></div>
+<div class="page-header">
+    <h1>{#title_payment#}</h1>
+</div>
+{if $error != ''}<div class="alert alert-error">{$error}</div>{/if}
+
+{if $step2!='true'}
+<div class="row-fluid">
+    <div class="span3">
+        <div class="page-header">
+            <h2>{#title_address#}</h2></div>
+        {$FORM_ACTION}
+        <div class="well well-gradient">
+        <p>{$ADDRESS_LABEL}</p>
+        <p>{$BUTTON_ADDRESS}</p></div>
+        <div class="page-header">
+            <h2>{#title_comments#}</h2></div>
+        <p class="checkoutcomment">{$COMMENTS}</p>
+    </div>
+    <div class="span9">
+        <div class="page-header">
+            <h2>{#title_payment#}</h2></div>
+        {if $GV_COVER!='true'}{$PAYMENT_BLOCK}{$module_gift}{else}{#text_gccover#}{/if}
+        <div class="page-header">
+            <h2>{#title_agb#}</h2></div>
+
+        <div class="checkoutagb well">{$AGB}</div>
+
+        <div> 
+            <input id="conditions" class="pull-left" style="margin-right: 10px" type="checkbox" name="conditions" value="conditions"> <label class="text-error">{#text_accept_agb#}</label>
+        </div>
+
+        <button type="submit" class="btn btn-success pull-right">Weiter <i class="icon-chevron-right icon-white"></i></button>
+    </div>
+
+</div>
+{/if}
+
+
+
+
+
+{$FORM_END}
